@@ -1,0 +1,1107 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<title>Ratpack: the core for your microservices</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=1274, user-scalable=no">
+	<link rel="stylesheet" href="themes/ribbon/styles/style.css">
+	<link rel="stylesheet" href="themes/ribbon/styles/print.css" media="print">
+	<!--
+		To apply styles to the certain slides
+		use slide ID to get needed elements
+		-->
+	<style>
+		#Cover h2 { color:#FFF; text-align:left; font-size:60px; }
+		#FitToWidth h2,
+		#FitToHeight h2 {
+			color:#FFF;
+			text-align:center;
+			}
+	</style>
+</head>
+<body class="list">
+	<header class="caption">
+		<h1>Ratpack: the core for your microservices</h1>
+		<p>Andrey Adamovich, Aestas/IT</p>
+	</header>
+	<div class="slide cover" id="Cover"><div>
+		<section>
+			<header>
+				<h2></h2>
+			</header><img src="images/COVER_JDD.png" />
+		</section>
+	</div></div>	
+	
+    
+    
+       
+    <div class="slide shout" id="1"><div>
+        <section>
+			<header>
+				<h2>About me</h2>
+			</header>    
+            
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="2"><div>
+        <section>
+			<header>
+				<h2>Andrey Adamovich</h2>
+			</header>    
+            <ul> 
+ <li>Bio: 
+  <ul> 
+   <li>Developer/Architect</li> 
+   <li>&quot;DevOps&quot; guy</li> 
+   <li>Coach</li> 
+   <li>Speaker</li> 
+   <li>Author</li> 
+  </ul></li> 
+ <li>Company: Aestas/IT (<a href="http://aestasit.com">http://aestasit.com</a>)</li> 
+</ul>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="3"><div>
+        <section>
+			<header>
+				<h2>Contact details</h2>
+			</header>    
+            <ul> 
+ <li>E-mail: <a href="mailto:andrey@aestasit.com">andrey@aestasit.com</a></li> 
+ <li>Linkedin: <a href="http://www.linkedin.com/in/andreyadamovich">http://www.linkedin.com/in/andreyadamovich</a></li> 
+ <li>Lanyrd: <a href="http://lanyrd.com/profile/andrey-adamovich">http://lanyrd.com/profile/andrey-adamovich</a></li> 
+ <li>GitHub: <a href="https://github.com/aadamovich">https://github.com/aadamovich</a></li> 
+ <li>SO: <a href="http://stackoverflow.com/users/162792/andrey-adamovich">http://stackoverflow.com/users/162792/andrey-adamovich</a></li> 
+ <li>Twitter: @codingandrey, @aestasit</li> 
+</ul>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide shout" id="4"><div>
+        <section>
+			<header>
+				<h2>Let's start!</h2>
+			</header>    
+            
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="5"><div>
+        <section>
+			<header>
+				<h2>Microservices</h2>
+			</header>    
+            <blockquote>
+ <p>In short, the microservice architectural style is an approach to developing a single application as a suite of small services, each running in its own process and communicating with lightweight mechanisms, often an HTTP resource API.</p> 
+</blockquote>
+<p>James Lewis &amp; Martin Fowler</p>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide shout" id="6"><div>
+        <section>
+			<header>
+				<h2>Quick Start!</h2>
+			</header>    
+            
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="7"><div>
+        <section>
+			<header>
+				<h2>0. Prerequisites</h2>
+			</header>    
+            <ul> 
+ <li>Install Java 8+</li> 
+ <li>Install Groovy 2.4+</li> 
+ <li>(Optionally) install Gradle 2+ (or just use Gradle Wrapper)</li> 
+</ul>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="8"><div>
+        <section>
+			<header>
+				<h2>1. Type in...</h2>
+			</header>    
+            <pre>
+<code>@Grab(&quot;io.ratpack:ratpack-groovy:1.0.0&quot;)</code>
+<code>@Grab(&quot;com.fasterxml.jackson.core:jackson-annotations:2.6.2&quot;)</code>
+<code>import static ratpack.groovy.Groovy.ratpack</code>
+</pre>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="9"><div>
+        <section>
+			<header>
+				<h2>1. Continue...</h2>
+			</header>    
+            <pre>
+<code>ratpack {</code>
+<code>  handlers {</code>
+<code>    get {</code>
+<code>      response.send &quot;Time is on JDD &quot; + </code>
+<code>         new Date().toString() </code>
+<code>    }</code>
+<code>  }</code>
+<code>}</code>
+</pre>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="10"><div>
+        <section>
+			<header>
+				<h2>2. Save as...</h2>
+			</header>    
+            <pre>
+<code>ratpack.groovy</code>
+</pre>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="11"><div>
+        <section>
+			<header>
+				<h2>3. Start!</h2>
+			</header>    
+            <pre>
+<code>groovy ratpack.groovy </code>
+</pre>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="12"><div>
+        <section>
+			<header>
+				<h2>4. Enable some more logging</h2>
+			</header>    
+            <pre>
+<code>JAVA_OPTS=-Dgroovy.grape.report.downloads=true</code>
+</pre>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="13"><div>
+        <section>
+			<header>
+				<h2>Ratpack facts</h2>
+			</header>    
+            
+<figure> 
+ <img src="images/ORIGIN_RATPACK.jpg" alt="Stack" /> 
+</figure>
+
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="14"><div>
+        <section>
+			<header>
+				<h2>Ratpack facts</h2>
+			</header>    
+            <p>Ratpack is a toolset that combines several Java libraries that allows efficiently developing performant and testable HTTP applications.</p>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="15"><div>
+        <section>
+			<header>
+				<h2>Ratpack facts</h2>
+			</header>    
+            <ul> 
+ <li>Inspired by Sinatra framework</li> 
+ <li>Requires Java 8</li> 
+ <li>Does not require a EE container</li> 
+ <li>Does not implement Servlet API</li> 
+ <li>Goes under Apache 2.0 License</li> 
+</ul>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="16"><div>
+        <section>
+			<header>
+				<h2>Ratpack facts</h2>
+			</header>    
+            <ul> 
+ <li>Core is very minimal and is only based on few abstractions (<em>Handler</em> and <em>Registry</em>)</li> 
+ <li>Many additional modules exist and it's easily to develop new ones</li> 
+ <li>Modules are injected through DI (there is no specialized plugin system)</li> 
+ <li>Out-of-the-box integration with Guice and Spring</li> 
+</ul>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="17"><div>
+        <section>
+			<header>
+				<h2>Stack</h2>
+			</header>    
+            
+<figure> 
+ <img src="images/RATPACK_LIBRARIES.png" alt="Stack" /> 
+</figure>
+
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide shout" id="18"><div>
+        <section>
+			<header>
+				<h2>It's alive and very active!</h2>
+			</header>    
+            
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="19"><div>
+        <section>
+			<header>
+				<h2>Release history</h2>
+			</header>    
+            <ul> 
+ <li>0.5.2 - Jul 21, 2012</li> 
+ <li>0.6.1 - Nov 29, 2012</li> 
+ <li>0.9.0 - Jan 02, 2014</li> 
+ <li>0.9.1 - Feb 01, 2014</li> 
+ <li>0.9.2 - Mar 01, 2014</li> 
+ <li>0.9.3 - Apr 01, 2014</li> 
+ <li>0.9.4 - May 01, 2014</li> 
+ <li>0.9.5 - Jun 01, 2014</li> 
+ <li>0.9.6 - Jul 01, 2014</li> 
+</ul>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="20"><div>
+        <section>
+			<header>
+				<h2>Release history</h2>
+			</header>    
+            <ul> 
+ <li>0.9.7 - Aug 01, 2014</li> 
+ <li>0.9.8 - Sep 01, 2014</li> 
+ <li>0.9.9 - Oct 01, 2014</li> 
+ <li>0.9.10 - Nov 02, 2014</li> 
+ <li>0.9.11 - Dec 01, 2014</li> 
+ <li>0.9.12 - Jan 01, 2014</li> 
+ <li>0.9.13 - Feb 01, 2015</li> 
+ <li>0.9.14 - Mar 01, 2015</li> 
+</ul>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="21"><div>
+        <section>
+			<header>
+				<h2>Release history</h2>
+			</header>    
+            <ul> 
+ <li>0.9.15 - Apr 01, 2015</li> 
+ <li>0.9.16 - May 02, 2015</li> 
+ <li>0.9.17 - June 02, 2015</li> 
+ <li>0.9.18 - July 02, 2015</li> 
+ <li>0.9.19 - Aug 02, 2015</li> 
+ <li><em>1.0.0 - Sep 15, 2015</em></li> 
+</ul>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="22"><div>
+        <section>
+			<header>
+				<h2>Commit history</h2>
+			</header>    
+            
+<figure> 
+ <img src="images/CONTRIBUTORS.png" alt="Top" /> 
+</figure>
+
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="23"><div>
+        <section>
+			<header>
+				<h2>Statistics</h2>
+			</header>    
+            
+<figure> 
+ <img src="images/RATPACK_STATS.png" alt="Top" /> 
+</figure>
+
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="24"><div>
+        <section>
+			<header>
+				<h2>Team</h2>
+			</header>    
+            
+<figure> 
+ <img src="images/RATPACK_TEAM.png" alt="Top" /> 
+</figure>
+
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="25"><div>
+        <section>
+			<header>
+				<h2>Top contributor</h2>
+			</header>    
+            
+<figure> 
+ <img src="images/TOP_CONTRIBUTOR.png" alt="Top" /> 
+</figure>
+
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="26"><div>
+        <section>
+			<header>
+				<h2>Modules I</h2>
+			</header>    
+            <ul> 
+ <li>Common: config, session</li> 
+ <li>Reactive: rx, remote</li> 
+ <li>Authentication: pac4j</li> 
+ <li>Build/Packaging: gradle</li> 
+ <li>Database: h2, hikari</li> 
+</ul>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="27"><div>
+        <section>
+			<header>
+				<h2>Modules II</h2>
+			</header>    
+            <ul> 
+ <li>Dependency Injection: guice, spring-boot</li> 
+ <li>JSON: jackson</li> 
+ <li>Language support: groovy, kotlin</li> 
+ <li>Reliability: hystrix, dropwizard-metrics, newrelic</li> 
+ <li>Templates: handlebars, thymeleaf, groovy</li> 
+ <li>Testing: test, groovy-test</li> 
+</ul>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="28"><div>
+        <section>
+			<header>
+				<h2>Java + Groovy = ?</h2>
+			</header>    
+            <ul> 
+ <li>Has similar performance to Java when using <code>invokeDynamic</code></li> 
+ <li>Supports static compilation and compile-time type checking</li> 
+ <li>Useful for defining rich DSLs with type checking via <code>Closure</code> parameters and <code>@DelegatesTo</code> annotations</li> 
+</ul>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="29"><div>
+        <section>
+			<header>
+				<h2>IDE support</h2>
+			</header>    
+            <ul> 
+ <li>IntelliJ IDEA recommended</li> 
+ <li>Eclipse has poor support for Groovy and @DelegatesTo</li> 
+ <li>NetBeans - haven't even tried</li> 
+</ul>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide shout" id="30"><div>
+        <section>
+			<header>
+				<h2>Diving deeper</h2>
+			</header>    
+            
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="31"><div>
+        <section>
+			<header>
+				<h2>Handlers</h2>
+			</header>    
+            <ul> 
+ <li>All request processing is done via composition of <code>Handler</code>s.</li> 
+ <li>Each <code>Handler</code> in the <code>Chain</code> is asked to respond to a <code>Request</code> until one actually does.</li> 
+</ul>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="32"><div>
+        <section>
+			<header>
+				<h2>A handler can</h2>
+			</header>    
+            <ul> 
+ <li>Send a <code>Response</code> based on the <code>Request</code>.</li> 
+ <li>Delegate to the next <code>Handler</code> in the <code>Chain</code>.</li> 
+ <li>Insert <code>Handler</code>s into the <code>Chain</code> and immediately delegate to them.</li> 
+ <li>Change <code>Context</code>, which represents the current state of the <code>Request</code> processing.</li> 
+</ul>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="33"><div>
+        <section>
+			<header>
+				<h2>Flow</h2>
+			</header>    
+            
+<figure> 
+ <img src="images/RATPACK_FLOW.png" alt="Stack" /> 
+</figure>
+
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide shout" id="34"><div>
+        <section>
+			<header>
+				<h2>Let's write some code!</h2>
+			</header>    
+            
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide shout" id="35"><div>
+        <section>
+			<header>
+				<h2>Demo: Date server</h2>
+			</header>    
+            
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="36"><div>
+        <section>
+			<header>
+				<h2>Paths and parameters</h2>
+			</header>    
+            <pre>
+<code>prefix('api') {</code>
+<code>  get('user/:id') {</code>
+<code>    render getUser(pathTokens.id)</code>
+<code>  }</code>
+<code>  get('friends') {</code>
+<code>    render getFriendList()</code>
+<code>  }</code>
+<code>}</code>
+</pre>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="37"><div>
+        <section>
+			<header>
+				<h2>Verbs</h2>
+			</header>    
+            <pre>
+<code>path('user') {</code>
+<code>  byMethod {</code>
+<code>    get { ... }</code>
+<code>    post { ... }</code>
+<code>    put { ... }</code>
+<code>    delete { ... }</code>
+<code>  }</code>
+<code>}</code>
+</pre>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="38"><div>
+        <section>
+			<header>
+				<h2>Content types</h2>
+			</header>    
+            <pre>
+<code>path('user') {</code>
+<code>  byContent {</code>
+<code>    json { ... }</code>
+<code>    xml { ... }</code>
+<code>    type(&quot;application/vnd.app.org+json;v=1&quot;) {</code>
+<code>      ...</code>
+<code>    }</code>
+<code>  }</code>
+<code>}</code>
+</pre>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="39"><div>
+        <section>
+			<header>
+				<h2>Static content</h2>
+			</header>    
+            <pre>
+<code>files { </code>
+<code>  dir &quot;public&quot; </code>
+<code>  file &quot;index.html&quot;</code>
+<code>}</code>
+</pre>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="40"><div>
+        <section>
+			<header>
+				<h2>Templates (ala JSP/GSP)</h2>
+			</header>    
+            <p>Handler code:</p> 
+<pre>
+<code>get (&quot;admin&quot;) {</code>
+<code>  render groovyTemplate('admin.html', result: &quot;&quot;)</code>
+<code>}</code>
+</pre>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="41"><div>
+        <section>
+			<header>
+				<h2>Templates (ala JSP/GSP)</h2>
+			</header>    
+            <p><code>admin.html</code>:</p> 
+<pre>
+<code>&lt;% if (model?.result) { %&gt;</code>
+<code>  &lt;% model.result.each { %&gt;</code>
+<code>    &lt;li&gt;${it}&lt;/li&gt;</code>
+<code>  &lt;% } %&gt;</code>
+<code>&lt;% } %&gt;</code>
+</pre>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="42"><div>
+        <section>
+			<header>
+				<h2>Templates (Groovy-way)</h2>
+			</header>    
+            <p>Handler code:</p> 
+<pre>
+<code>render groovyMarkupTemplate(</code>
+<code>  &quot;update.gtpl&quot;, </code>
+<code>  &quot;title: &quot;Update Book&quot;,</code>
+<code>  ...</code>
+<code>  &quot;price&quot;: book.price</code>
+<code>)</code>
+</pre>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="43"><div>
+        <section>
+			<header>
+				<h2>Templates (Groovy-way)</h2>
+			</header>    
+            <p><code>update.gtpl</code>:</p> 
+<pre>
+<code>layout 'layout.gtpl',</code>
+<code>title: title,</code>
+<code>msg: msg,</code>
+<code>bodyContents: contents {</code>
+<code>  h1('Update Book')</code>
+<code>  includeGroovy '_book_form.gtpl'</code>
+<code>}</code>
+</pre>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="44"><div>
+        <section>
+			<header>
+				<h2>Testing</h2>
+			</header>    
+            <ul> 
+ <li>Test handler implementations with <code>RequestFixture</code></li> 
+ <li>Functional testing with <code>ApplicationUnderTest</code> and <code>TestHttpClient</code></li> 
+ <li>Nobody canceled testing with Geb (Selenium)!</li> 
+</ul>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide shout" id="45"><div>
+        <section>
+			<header>
+				<h2>Demo: Geb Test</h2>
+			</header>    
+            
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide shout" id="46"><div>
+        <section>
+			<header>
+				<h2>Demo: Lazybones + IDEA</h2>
+			</header>    
+            
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide shout" id="47"><div>
+        <section>
+			<header>
+				<h2>Let's build services!</h2>
+			</header>    
+            
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="48"><div>
+        <section>
+			<header>
+				<h2>Service setup</h2>
+			</header>    
+            
+<figure> 
+ <img src="images/DEMO_ARCHITECTURE.png" alt="Demo" /> 
+</figure>
+
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="49"><div>
+        <section>
+			<header>
+				<h2>Quick start</h2>
+			</header>    
+            <ul> 
+ <li><code>lazybones create ratpack &lt;project&gt;</code></li> 
+ <li><code>gradlew idea</code></li> 
+ <li><code>gradlew run --continuous</code></li> 
+</ul>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide shout" id="50"><div>
+        <section>
+			<header>
+				<h2>Demo: Services</h2>
+			</header>    
+            
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="51"><div>
+        <section>
+			<header>
+				<h2>Operational aspects</h2>
+			</header>    
+            <ul> 
+ <li>Can't even make WAR! Very peaceful!</li> 
+ <li>Publish JAR/TAR/ZIP in to artifact repository</li> 
+ <li>Or use os-package plugin to create DEB/RPM package</li> 
+ <li>Integrate with provisioning/configuration management tools</li> 
+ <li>Consider monitoring/metrics</li> 
+</ul>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="52"><div>
+        <section>
+			<header>
+				<h2>Puppet: defined type</h2>
+			</header>    
+            <pre>
+<code>define service::booking(</code>
+<code>  $deployment_port,</code>
+<code>  $deployment_host,</code>
+<code>  $enabled                = true,</code>
+<code>  $development_mode       = false,</code>
+<code>  $revision               = latest,</code>
+<code>) {</code>
+<code>  ...</code>
+<code>}</code>
+</pre>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="53"><div>
+        <section>
+			<header>
+				<h2>Puppet: fetch</h2>
+			</header>    
+            <pre>
+<code>file { &quot;/services/booking/environments/${name}&quot;:</code>
+<code>  ensure      =&gt; directory</code>
+<code>}  </code>
+<code>vcsrepo { &quot;/services/booking/environments/${name}&quot;:</code>
+<code>  ensure      =&gt; $revision,</code>
+<code>  provider    =&gt; git,</code>
+<code>  source      =&gt; 'https://github.com/jdd/booking.git',</code>
+<code>  notify      =&gt; Exec[&quot;build booking ${name} api&quot;]</code>
+<code>}</code>
+</pre>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="54"><div>
+        <section>
+			<header>
+				<h2>Puppet: auto-build</h2>
+			</header>    
+            <pre>
+<code>exec { &quot;build garagetravel ${name} api&quot;:</code>
+<code>  cwd         =&gt; &quot;/services/booking/environments/${name}&quot;,</code>
+<code>  refreshonly =&gt; true,</code>
+<code>  command     =&gt; </code>
+<code>    &quot;/services/booking/../${name}/gradlew installApp&quot;,</code>
+<code>  notify      =&gt; Service[&quot;booking_${name}&quot;]</code>
+<code>}</code>
+</pre>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="55"><div>
+        <section>
+			<header>
+				<h2>Puppet: service</h2>
+			</header>    
+            <pre>
+<code>file { &quot;booking ${name} service&quot;:</code>
+<code>  path    =&gt; &quot;/etc/init/booking_${name}.conf&quot;,</code>
+<code>  content =&gt; template('booking/service.conf.erb'),</code>
+<code>  notify  =&gt; Service[&quot;booking_${name}&quot;]</code>
+<code>}  </code>
+</pre>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="56"><div>
+        <section>
+			<header>
+				<h2>Puppet: service</h2>
+			</header>    
+            <pre>
+<code>service { &quot;booking_${name}&quot;:</code>
+<code>  ensure   =&gt; $enabled ? </code>
+<code>    { true =&gt; &quot;running&quot;, </code>
+<code>      default =&gt; &quot;stopped&quot; },</code>
+<code>  enable   =&gt; $enabled,</code>
+<code>  provider =&gt; upstart,</code>
+<code>}</code>
+</pre>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="57"><div>
+        <section>
+			<header>
+				<h2>Combining options</h2>
+			</header>    
+            <ul> 
+ <li>Chef/Ansible</li> 
+ <li>Etcd/Consul/Eureka</li> 
+ <li>Docker</li> 
+</ul>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="58"><div>
+        <section>
+			<header>
+				<h2>Monitoring</h2>
+			</header>    
+            <ul> 
+ <li>Hystrix</li> 
+ <li>Dropwizard Metrics</li> 
+</ul>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="59"><div>
+        <section>
+			<header>
+				<h2>What's next?</h2>
+			</header>    
+            
+<figure> 
+ <img src="images/DEMO_ARCHITECTURE.png" alt="Demo" /> 
+</figure>
+
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="60"><div>
+        <section>
+			<header>
+				<h2>Going further</h2>
+			</header>    
+            
+<figure> 
+ <img src="images/DEMO_ARCHITECTURE_EXTEND.png" alt="Demo" /> 
+</figure>
+
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide shout" id="61"><div>
+        <section>
+			<header>
+				<h2>Demo: Examples Books</h2>
+			</header>    
+            
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide shout" id="62"><div>
+        <section>
+			<header>
+				<h2>Summary</h2>
+			</header>    
+            
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="63"><div>
+        <section>
+			<header>
+				<h2>Take-aways</h2>
+			</header>    
+            <ul> 
+ <li>Ratpack can be used to quickly prototype web APIs and applications.</li> 
+ <li>Learning curve is really small, you can start in seconds.</li> 
+ <li>It can be used to create high performance web applications due to non-blocking architecture.</li> 
+ <li>Ratpack does not lock you in the way you implement data access, session handling, logging, etc.</li> 
+ <li>Ratpack has vibrant community and actively evolving code base.</li> 
+</ul>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="64"><div>
+        <section>
+			<header>
+				<h2>Reading material</h2>
+			</header>    
+            <ul> 
+ <li><a href="http://ratpack.io">http://ratpack.io</a></li> 
+ <li><a href="http://www.slideshare.net/search/slideshow?q=ratpack">http://www.slideshare.net/search/slideshow?q=ratpack</a></li> 
+ <li><a href="https://github.com/ratpack">https://github.com/ratpack</a></li> 
+ <li><a href="http://alvarosanchez.github.io/ratpack-101/">http://alvarosanchez.github.io/ratpack-101/</a></li> 
+</ul>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="65"><div>
+        <section>
+			<header>
+				<h2>Book</h2>
+			</header>    
+            
+<figure> 
+ <img src="images/BOOK_LEARNING_RATPACK.png" alt="Stack" /> 
+</figure>
+
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide shout" id="66"><div>
+        <section>
+			<header>
+				<h2>Contribute!</h2>
+			</header>    
+            
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide shout" id="67"><div>
+        <section>
+			<header>
+				<h2>Questions?</h2>
+			</header>    
+            
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide" id="68"><div>
+        <section>
+			<header>
+				<h2>Demo code</h2>
+			</header>    
+            <ul> 
+ <li><a href="https://github.com/aestasit/talks2015-jdd-ratpack-the-core-for-your-microservices-setup">https://github.com/aestasit/talks2015-jdd-ratpack-the-core-for-your-microservices-setup</a></li> 
+</ul>
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide shout" id="69"><div>
+        <section>
+			<header>
+				<h2>Thank you!</h2>
+			</header>    
+            
+		</section>
+	</div></div>
+    
+    
+       
+    <div class="slide shout" id="70"><div>
+        <section>
+			<header>
+				<h2>Happy coding!</h2>
+			</header>    
+            
+		</section>
+	</div></div>
+    
+		
+	<!--
+		To hide progress bar from entire presentation
+		just remove “progress” element.
+		-->
+	<div class="progress"><div></div></div>
+	<script src="scripts/script.js"></script>
+	<!-- Copyright © 2010–2012 Vadim Makeev — pepelsbey.net -->
+	<!-- Photos by John Carey — fiftyfootshadows.net -->
+</body>
+</html>
