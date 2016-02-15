@@ -1,7 +1,7 @@
 
-# Ratpack: Core of your micro-services
+# Ratpack - the core for your microservices
 
-Slide deck of presentation "**Ratpack: Core of your micro-services**" given at **JDD** (Krakow), *2015* by *Andrey Adamovich*.
+Slide deck of presentation "**Ratpack - the core for your microservices**" given at **JDD** (Krakow), *2015* by *Andrey Adamovich*.
 
 Presentation description:
 
